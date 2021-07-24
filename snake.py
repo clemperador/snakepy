@@ -32,11 +32,11 @@ font_style = pygame.font.SysFont(None, 50)
  
 def message(msg,color):
     mesg = font_style.render(msg, True, color)
-    dis.blit(mesg, [dis_width/2, dis_height/2])
+    dis.blit(mesg, [dis_width/100, dis_height/100])
 
 def message2(msg,color):
     mesg = font_style.render(msg, True, color)
-    dis.blit(mesg, [dis_width/10, dis_height/10])
+    dis.blit(mesg, [dis_width/1000, dis_height/1000])
 
 game_over = False
 
@@ -55,7 +55,7 @@ def gameLoop():
 
         while game_close == True:
             dis.fill(WHITE)
-            message("presiona j para jugar denuevo", RED)
+            message("You Lost. Press J to Play Again", RED)
             pygame.display.update()
             
             for event in pygame.event.get():
@@ -63,7 +63,7 @@ def gameLoop():
                     if event.key == pygame.K_q:
                         game_over = True
                         game_close = False
-                    if event.key == pygame.K_c:
+                    if event.key == pygame.K_j:
                         gameLoop()
             
         
@@ -93,7 +93,7 @@ def gameLoop():
     
         pygame.display.update()
         if x1 == foodx and y1 == foody:
-            print("mmmmmmm")
+            print("Delicious.")
     
         clock.tick(snake_speed)
 
